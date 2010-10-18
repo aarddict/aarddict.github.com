@@ -1,0 +1,19 @@
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   aarddict/doc/aarddict.rst
+   aarddict/doc/old_screenshots.rst
+   aarddict-android/doc/aarddict-android.rst
+   aardtools/doc/aardtools.rst
+   aardtools/doc/aardformat.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

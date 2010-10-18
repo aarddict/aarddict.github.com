@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Aard Format &mdash; aarddict v0.9.1 documentation</title>
+    <link rel="stylesheet" href="../../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.9.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="top" title="aarddict v0.9.1 documentation" href="../../index.html" />
+    <link rel="prev" title="Aard Tools" href="aardtools.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="aardtools.html" title="Aard Tools"
+             accesskey="P">previous</a> |</li>
+<li><a href="../../index.html" style="text-decoration: none;"><img src="../../_static/aarddict_small.png"
+					  alt="Aard Dictionary small
+					  logo"
+					  title="Aard Dictionary Home"
+					  style="vertical-align:
+					  middle;
+					  padding-bottom: 3px;					  
+					  "/>
+
+</li>
+<li><a href="../../download.html">Download</a> | </li>
+<li><a href="../../dictionaries.html">Dictionaries</a> | </li>
+<li><a href="../../contents.html">Docs</a> | </li>
+<li><a href="../../store.html">Store</a> | </li>
+<li>
+<a href="http://www.twitter.com/aarddict">
+  <img src="http://twitter-badges.s3.amazonaws.com/t_small-a.png"
+       alt="Follow aarddict on
+	    Twitter" style="vertical-align: middle;"/>
+</a>
+</li>
+ 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="aard-format">
+<h1>Aard Format<a class="headerlink" href="#aard-format" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="container-format">
+<h2>Container Format<a class="headerlink" href="#container-format" title="Permalink to this headline">¶</a></h2>
+<p>Aard Dictionary container format is a binary file format that combines
+dictionary metadata, lookup index and compressed article data.</p>
+<p>Aard files have the following layout: header, metadata, index 1, index 2, articles</p>
+<div class="section" id="header">
+<h3>Header<a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>Aard files start with a fixed size header described by the following
+specification:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">HEADER_SPEC</span> <span class="o">=</span> <span class="p">((</span><span class="s">&#39;signature&#39;</span><span class="p">,</span>                <span class="s">&#39;&gt;4s&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;sha1sum&#39;</span><span class="p">,</span>                  <span class="s">&#39;&gt;40s&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;version&#39;</span><span class="p">,</span>                  <span class="s">&#39;&gt;H&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;uuid&#39;</span><span class="p">,</span>                     <span class="s">&#39;&gt;16s&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;volume&#39;</span><span class="p">,</span>                   <span class="s">&#39;&gt;H&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;of&#39;</span><span class="p">,</span>                       <span class="s">&#39;&gt;H&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;meta_length&#39;</span><span class="p">,</span>              <span class="s">&#39;&gt;L&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;index_count&#39;</span><span class="p">,</span>              <span class="s">&#39;&gt;L&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;article_offset&#39;</span><span class="p">,</span>           <span class="s">&#39;&gt;L&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;index1_item_format&#39;</span><span class="p">,</span>       <span class="s">&#39;&gt;4s&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;key_length_format&#39;</span><span class="p">,</span>        <span class="s">&#39;&gt;2s&#39;</span><span class="p">),</span>
+               <span class="p">(</span><span class="s">&#39;article_length_format&#39;</span><span class="p">,</span>    <span class="s">&#39;&gt;2s&#39;</span><span class="p">),</span>
+               <span class="p">)</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>signature</dt>
+<dd>signature string &#8216;aard&#8217; identifying file as Aard Dictionary file</dd>
+<dt>sha1sum</dt>
+<dd>sha1 sum of dictionary file content following signature and sha1 bytes</dd>
+<dt>version</dt>
+<dd>Aard format version, a number, currently must be 1</dd>
+<dt>uuid</dt>
+<dd>dictionary unique identifier shared by all volumes of the same dictionary</dd>
+<dt>volume</dt>
+<dd>volume number of this this file</dd>
+<dt>of</dt>
+<dd>total number of volumes for the dictionary</dd>
+<dt>meta_length</dt>
+<dd>length of metadata compressed string</dd>
+<dt>index_count</dt>
+<dd>number of words in the dictionary</dd>
+<dt>article_offset</dt>
+<dd>article offset</dd>
+<dt>index1_item_format</dt>
+<dd>either <cite>&gt;LL</cite> or <cite>&gt;LQ</cite> (if maximum volume file size is set to a value bigger
+then 2^32 - 1) - <tt class="xref py py-mod docutils literal"><span class="pre">struct</span></tt> format for key pointer and article
+pointer.</dd>
+<dt>key_length_format</dt>
+<dd><cite>&gt;H</cite> - key length format in index2_item</dd>
+<dt>article_length_format</dt>
+<dd><cite>&gt;L</cite> - article length format</dd>
+</dl>
+</div>
+<div class="section" id="metadata">
+<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
+<p>Metadata is a dictionary stored as a JSON-encoded string. Aard Dictionary
+viewer uses the following metadata keys:</p>
+<dl class="docutils">
+<dt>article_count</dt>
+<dd>number of unique articles in the dictionary (in all volumes combined)</dd>
+<dt>index_language</dt>
+<dd>dictionary&#8217;s &#8220;from&#8221; language (two or thre letter ISO code)</dd>
+<dt>article_language</dt>
+<dd>dictionary&#8217;s &#8220;from&#8221; language (two or thre letter ISO code)</dd>
+<dt>title</dt>
+<dd>dictionary title</dd>
+<dt>version</dt>
+<dd>dictionary version</dd>
+<dt>description</dt>
+<dd>dictionary desription</dd>
+<dt>copyright</dt>
+<dd>copyright notice</dd>
+<dt>license</dt>
+<dd>full license text</dd>
+<dt>source</dt>
+<dd>description of the source from which dicionary data originated</dd>
+</dl>
+</div>
+<div class="section" id="index-1">
+<h3>Index 1<a class="headerlink" href="#index-1" title="Permalink to this headline">¶</a></h3>
+<p>Index 1 is a sequence of fixed-size items containing two values: pointer to
+Index 2 item and pointer to article item.</p>
+</div>
+<div class="section" id="index-2">
+<h3>Index 2<a class="headerlink" href="#index-2" title="Permalink to this headline">¶</a></h3>
+<p>Index 2 is a sequence of variable-length items containing two values: length of
+dictionary key text and key text itself.</p>
+</div>
+<div class="section" id="articles">
+<h3>Articles<a class="headerlink" href="#articles" title="Permalink to this headline">¶</a></h3>
+<p>Articles is a sequence of variable length items containing two values: length
+of article text and article text itself.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt>Module <tt class="xref py py-mod docutils literal"><span class="pre">struct</span></tt></dt>
+<dd><a class="reference external" href="http://docs.python.org/library/struct.html">Documentation</a> for the
+<tt class="xref py py-mod docutils literal"><span class="pre">struct</span></tt> module</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="article-formats">
+<h2>Article Formats<a class="headerlink" href="#article-formats" title="Permalink to this headline">¶</a></h2>
+<p>From container format perspective article is just a string that is stored
+either as is or compressed with gzip or bz2 whichever takes less space. Thus
+articles in Aard files may be in any format that can be represented as
+string, for example plain text or HTML.</p>
+<p>Aard Dictionary 0.7.x can only display JSON-encoded articles
+(<a class="reference internal" href="#term-aar-json"><em class="xref std std-term">aar-JSON</em></a>). Aard Dictionary 0.8.0 supports both
+<a class="reference internal" href="#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> and <a class="reference internal" href="#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>. Aard Dictionary 0.9.0 and Aard
+Dictionary for Android support only <a class="reference internal" href="#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>.</p>
+<dl class="glossary docutils">
+<dt id="term-aar-json">aar-JSON</dt>
+<dd>Article is represented by a tuple consisting of article <tt class="docutils literal"><span class="pre">text</span></tt>, <tt class="docutils literal"><span class="pre">tags</span></tt> and
+optional attributes dictionary (so article tuple length may be either 2 or 3).
+<tt class="docutils literal"><span class="pre">text</span></tt> is UTF8 encoded string. <tt class="docutils literal"><span class="pre">tags</span></tt> is a sequence of tag tuples. Each tag
+tuple is a tuple of values for tag name, start position, end position and
+optional attribute dictionary (so each tag tuple has length of either 3 or
+4). This data structure is converted to string via JSON
+serialization.</dd>
+<dt id="term-aar-html">aar-HTML</dt>
+<dd>Article is represented as HTML 4 or XHTML 1.0 formatted text without
+enclosing <tt class="docutils literal"><span class="pre">html</span></tt> and <tt class="docutils literal"><span class="pre">body</span></tt> tags.</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../../contents.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Aard Format</a><ul>
+<li><a class="reference internal" href="#container-format">Container Format</a><ul>
+<li><a class="reference internal" href="#header">Header</a></li>
+<li><a class="reference internal" href="#metadata">Metadata</a></li>
+<li><a class="reference internal" href="#index-1">Index 1</a></li>
+<li><a class="reference internal" href="#index-2">Index 2</a></li>
+<li><a class="reference internal" href="#articles">Articles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#article-formats">Article Formats</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="aardtools.html"
+                        title="previous chapter">Aard Tools</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../../_sources/aardtools/doc/aardformat.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="aardtools.html" title="Aard Tools"
+             >previous</a> |</li>
+<li><a href="../../index.html" style="text-decoration: none;"><img src="../../_static/aarddict_small.png"
+					  alt="Aard Dictionary small
+					  logo"
+					  title="Aard Dictionary Home"
+					  style="vertical-align:
+					  middle;
+					  padding-bottom: 3px;					  
+					  "/>
+
+</li>
+<li><a href="../../download.html">Download</a> | </li>
+<li><a href="../../dictionaries.html">Dictionaries</a> | </li>
+<li><a href="../../contents.html">Docs</a> | </li>
+<li><a href="../../store.html">Store</a> | </li>
+<li>
+<a href="http://www.twitter.com/aarddict">
+  <img src="http://twitter-badges.s3.amazonaws.com/t_small-a.png"
+       alt="Follow aarddict on
+	    Twitter" style="vertical-align: middle;"/>
+</a>
+</li>
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2008-2010, Igor Tkach.
+      Last updated on Oct 17, 2010.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
+    </div>
+  </body>
+</html>
