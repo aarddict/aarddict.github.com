@@ -234,7 +234,28 @@ and 5Mb <cite>dict-split.2_of_2.aar</cite>.</p>
 <div class="section" id="release-notes">
 <h2>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id2">
-<h3>0.8.0<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3>0.8.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Exclude more boxes, exclude sister and inter project links</li>
+<li>Add <tt class="docutils literal"><span class="pre">--article-count</span></tt> option - compile specified number of articles,
+not counting redirects</li>
+<li>Change article format for xdxf from json to html</li>
+<li>Add option <tt class="docutils literal"><span class="pre">--skip-article-title</span></tt> for xdxf to not add article title
+at the beginning of article (some dicitonaries already have it)</li>
+<li>Remove support for article <a class="reference internal" href="aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> article format</li>
+<li>Add command to fetch siteinfo, require that siteinfo file is
+explicitely specified with <tt class="docutils literal"><span class="pre">--siteinfo</span></tt> option</li>
+<li>Don&#8217;t load default license, copyright and metadata files, don&#8217;t
+provide any defaults when loading specified metadata</li>
+<li>Don&#8217;t include any language links languages by defualt</li>
+<li>Add known wiki licenses</li>
+<li>Better version guessing from file name</li>
+<li>Updated mwlib dependency to 0.12.13</li>
+<li>Make compiler work with aarddict 0.9.0</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>0.8.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Use json module from standard lib if using Python 2.6</li>
 <li>Update mwlib dependency to 0.12.10</li>
@@ -251,8 +272,8 @@ references</li>
 more metadata, navigation and image related elements</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>0.7.6<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>0.7.6<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Add Wikipedia language link support (include article titles from
 language links into index for languages specified with <tt class="docutils literal"><span class="pre">--lang-links</span></tt>
@@ -264,8 +285,8 @@ article storage to reduce disk space requirements</li>
 2 <sup>32</sup> - 1</li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3>0.7.5<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>0.7.5<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Include license, doc and wiki files in source distribution generated
 by setuptools</li>
@@ -283,8 +304,8 @@ compiler.py</li>
 <li>Parse XDXF&#8217;s <tt class="docutils literal"><span class="pre">nu</span></tt> and <tt class="docutils literal"><span class="pre">opt</span></tt> tags</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>0.7.4<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>0.7.4<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Improved Wiki redirect parsing: case insensitive, recognize
 site-specific redirect magic word aliases</li>
@@ -293,8 +314,8 @@ site-specific redirect magic word aliases</li>
 <li>Better guess wiki language and version from input file name</li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>0.7.3<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id7">
+<h3>0.7.3<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Compile wiki directly from CDB (original wiki xml dump is no longer
 needed after generating CDB)</li>
@@ -330,11 +351,12 @@ dictionary metadata by default</li>
 </ul>
 </li>
 <li><a class="reference internal" href="#release-notes">Release Notes</a><ul>
-<li><a class="reference internal" href="#id2">0.8.0</a></li>
-<li><a class="reference internal" href="#id3">0.7.6</a></li>
-<li><a class="reference internal" href="#id4">0.7.5</a></li>
-<li><a class="reference internal" href="#id5">0.7.4</a></li>
-<li><a class="reference internal" href="#id6">0.7.3</a></li>
+<li><a class="reference internal" href="#id2">0.8.1</a></li>
+<li><a class="reference internal" href="#id3">0.8.0</a></li>
+<li><a class="reference internal" href="#id4">0.7.6</a></li>
+<li><a class="reference internal" href="#id5">0.7.5</a></li>
+<li><a class="reference internal" href="#id6">0.7.4</a></li>
+<li><a class="reference internal" href="#id7">0.7.3</a></li>
 </ul>
 </li>
 </ul>
