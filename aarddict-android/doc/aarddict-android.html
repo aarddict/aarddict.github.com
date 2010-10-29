@@ -176,7 +176,7 @@ manager.</p>
 </div>
 <div class="section" id="reporting-issues">
 <h2>Reporting Issues<a class="headerlink" href="#reporting-issues" title="Permalink to this headline">¶</a></h2>
-<p>Please submit issue reports and enhancement requests to <a class="reference external" href="http://bitbucket.org/itkach/aarddict-android/issues/">Aard
+<p>Please submit issue reports and enhancement requests to <a class="reference external" href="http://github.com/aarddict/android/issues">Aard
 Dictionary for Android issue tracker</a>.</p>
 </div>
 <div class="section" id="release-notes">
@@ -184,17 +184,19 @@ Dictionary for Android issue tracker</a>.</p>
 <div class="section" id="id1">
 <h3>1.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Do not scan SD card automatically on initial application startup.</li>
+<li>Do not scan SD card automatically on initial application startup
+(<a class="reference external" href="http://github.com/aarddict/android/issues/1">issue #1</a>).</li>
 <li>More lookup results are loaded as user scrolls (&#8220;More&#8221; button is
 removed).</li>
-<li>Fixed article view not properly updating on Next/Back navigation.
+<li>Fixed article view not properly updating on Next/Back navigation
+(<a class="reference external" href="http://github.com/aarddict/android/issues/3">issue #3</a>).
 This was an issue only on Android 2.x: handling gestures breaks
 WebView, so swipe and long press gestures had to be removed.</li>
 <li>Keep article view scale between lookups and when navigating.</li>
 <li>Don&#8217;t set article text margin to zero in Wikipedia CSS, zero margin
 makes it less readable.</li>
-<li>Preformatted text (&lt;pre&gt; elements) in articles was all hidden, now
-fixed. This due to bug in WebKit&#8217;s implementation of :empty
+<li>Preformatted text (<tt class="docutils literal"><span class="pre">&lt;pre&gt;</span></tt> elements) in articles was all hidden, now
+fixed. This due to bug in WebKit&#8217;s implementation of <tt class="docutils literal"><span class="pre">:empty</span></tt>
 pseudo-class.</li>
 <li>Allow moving the application to SD Card (Android 2.2)</li>
 <li>Minor UI tweaks</li>
@@ -315,7 +317,7 @@ back and forth within article group</li>
     </div>
     <div class="footer">
         &copy; Copyright 2008-2010, Igor Tkach.
-      Last updated on Oct 27, 2010.
+      Last updated on Oct 29, 2010.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
