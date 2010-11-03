@@ -1,0 +1,96 @@
+body {
+     min-width:40em;
+}
+
+div.screenshots {
+    padding-bottom: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+div.screenshots img {
+    width: 120px;
+    border: thin solid #355F7C;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.downloaddescr {
+    font-size: x-small;
+}
+
+.linkdescr {
+    line-height : 130%;
+}
+
+a.external {
+    background: url("external.png") center right no-repeat;
+    padding: 0 13px 0 0;
+}
+
+.aawarn {
+  background-color: #FFFBC6;
+  color: red;
+  padding: 3px;
+  border: thin solid #eeeab5;
+}
+
+.wikidownloadlinks {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.wikidownloadlinks tr td {
+    vertical-align: top;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.hidden {
+    visibility:hidden;
+}
+
+#downloadButton {
+    width: 8em; 
+    margin-left: auto; 
+    margin-right: auto;
+    display: none;
+}
+
+a.button {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: green;
+  border: thin solid darkgreen;
+  display: block;
+  padding: 5px;
+  color: white;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+a.button:link {
+    text-decoration: none;
+}
+
+a.button: visited {
+    text-decoration: none;
+    color: white;
+}
+
+a.button:hover {
+    text-decoration: none;
+    background-color: #009900;
+}
+
+a.button:active {
+    text-decoration: none;
+    background-color: #006600;
+}
+
+.featureddownload {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: large;
+}
