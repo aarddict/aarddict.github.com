@@ -1,0 +1,11 @@
+Documentation
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   /aarddict/doc/aarddict.rst   
+   /aarddict-android/doc/aarddict-android.rst
+   /aardtools/doc/aardtools.rst
+   /aardtools/doc/aardformat.rst
+
