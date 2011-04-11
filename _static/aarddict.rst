@@ -188,6 +188,11 @@ Lookup Box
 |start/end of document|                                    |                           |
 +---------------------+------------------------------------+---------------------------+
 
+OS standard navigation keys also work in word completion list and
+history list. Activating an item in these lists (:kbd:`Enter` on
+Windows and X Windows) also moves keyboard focus to current article.
+
+
 Find Bar
 --------
 +---------------------+------------------------------------+---------------------------+
@@ -425,18 +430,18 @@ On Windows earlier than Windows XP SP3 users may also need to install
 Maemo
 -----
 Aard Dictionary starting with 0.8.0 depends on PyQt4 libraries which
-have not been officially released for Maemo 4.1 (N800 and N810) and
-are only available in development repository. Maemo 4.1 users can use
-Maemo 5 single click install, but must enable `Diablo extras-devel`_
-repository first. Be advised that it contains potentially unstable
-software that is primarily intended for developers and testers.
+have not been officially released for Maemo 4 (N800 and N810) and are
+only available in development repository. `Single click install for
+Maemo 4`_ enables it (`extras-devel`). Be advised that `extras-devel`
+contains potentially unstable software that is primarily intended for
+developers and testers.
 
 Another issue users may encounter when installing on N800/N810 is that Aard Dictionary
 0.8.0 together with PyQt4 and Qt4 libraries is approximately 23
 Mb download and requires some 70 Mb of device memory. Some applications may need to
 be uninstalled to free enough memory for the installation.
 
-.. _Diablo extras-devel: http://repository.maemo.org/extras/install/extras-devel.install
+.. _Single click install for Maemo 4: http://aarddict.org/aarddict_0.8.0.dev.install
 
 Building Mac OS X App
 =====================
@@ -611,8 +616,24 @@ Dictionary issue tracker`_.
 .. _Aard Dictionary issue tracker: http://github.com/aarddict/desktop/issues
 
 
-Release Notes
-=============
+Changes
+=======
+
+0.9.2
+-----
+- Keyboard focus is no longer automatically transferred to article
+  view when word is selected in word completion list
+  (:desktop-issue:`18`)
+
+- Transfer keyboard focus to article view when word is activated in
+  word completion list or history
+
+- Fix aarddict's command line `verify`, `identify` and `metadata` 
+  operations (:desktop-issue:`16`)
+
+- Windows installer no longer installs URL shortcuts to Aard
+  Dictionary's web site and forum (:desktop-issue:`17`)
+
 
 0.9.1
 -----
@@ -877,20 +898,3 @@ Major user visible differences:
 - Better word lookup history navigation
 
 - Updated UI
-
-
-Old Screenshots
-===============
-
-.. raw:: html
-   :file: screenshots.html
-
-0.8.0
------
-.. raw:: html
-   :file: screenshots_0.8.html
-
-0.7.0
------
-.. raw:: html
-   :file: screenshots_0.7.html

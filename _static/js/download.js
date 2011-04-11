@@ -9,7 +9,7 @@ var aarddict = {
 	    },
 
 	    isMacOSXIntel: function() {
-		return platform.indexOf('mac') != -1 && 
+		return platform.indexOf('mac') != -1 &&
 		    platform.indexOf('intel') != -1 &&
 		    userAgent.indexOf('os x') != -1;
 	    },
@@ -21,7 +21,7 @@ var aarddict = {
 	    isUbuntu: function() {
 		if (userAgent.indexOf('ubuntu') != -1) {
 		    return true;
-		}		
+		}
 		if ('vendor' in navigator) {
 		    var vendor = navigator.vendor;
 		    return vendor && vendor.toLowerCase().indexOf('ubuntu') != -1;
@@ -30,7 +30,7 @@ var aarddict = {
 	    },
 
 	    isMaemo5: function() {
-		return platform.indexOf('armv') != -1 && 
+		return platform.indexOf('armv') != -1 &&
 		    userAgent.indexOf('n900') != -1 &&
 		    userAgent.indexOf('maemo') != -1;
 	    },
@@ -39,7 +39,7 @@ var aarddict = {
 		if (this.isWindows()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.1-1_setup.exe')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_setup.exe')
 			.attr('title',
 			      'Aard Dictionary for Windows');
 		    return true;
@@ -47,7 +47,7 @@ var aarddict = {
 		if (this.isMacOSXIntel()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.1-1_macosx-intel.zip')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_macosx-intel.zip')
 			.attr('title',
 			      'Aard Dictionary for Mac OS X (Intel)');
 		    return true;
@@ -55,7 +55,7 @@ var aarddict = {
 		if (this.isLinux() && this.isUbuntu()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.1-1_all.deb')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_all.deb')
 			.attr('title',
 			      'Aard Dictionary for Ubuntu Linux');
 		    return true;
