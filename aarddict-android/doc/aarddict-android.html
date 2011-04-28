@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '0.9.2',
+        VERSION:     '0.9.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -196,10 +196,22 @@ manager.</p>
 <p>Please submit issue reports and enhancement requests to <a class="reference external" href="http://github.com/aarddict/android/issues">Aard
 Dictionary for Android issue tracker</a>.</p>
 </div>
-<div class="section" id="release-notes">
-<h2>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changes">
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="id1">
-<h3>1.1<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>1.2<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Save/restore current article and history on orientation change
+(<a class="reference external" href="http://github.com/aarddict/android/issues/8">issue #8</a>)</li>
+<li>Keep article scroll positions (<a class="reference external" href="http://github.com/aarddict/android/issues/11">issue #11</a>)</li>
+<li>Don&#8217;t crash in lookup view on orientation change during dictionary
+load (<a class="reference external" href="http://github.com/aarddict/android/issues/15">issue #15</a>)</li>
+<li>Don&#8217;t crash in article view on orientation change during view touch (when
+there is next article) (<a class="reference external" href="http://github.com/aarddict/android/issues/16">issue #16</a>)</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>1.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Do not scan SD card automatically on initial application startup
 (<a class="reference external" href="http://github.com/aarddict/android/issues/1">issue #1</a>).</li>
@@ -219,14 +231,14 @@ pseudo-class.</li>
 <li>Minor UI tweaks</li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h3>1.0.1<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id3">
+<h3>1.0.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fix crash on Android 2.2 when looking for dictionaries.</li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>1.0<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3>1.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p>This is initial port of Aard Dictionary to Android:</p>
 <ul class="simple">
 <li>Display best match as user types</li>
@@ -261,7 +273,7 @@ back and forth within article group</li>
 
     <div class="footer">
         &copy; Copyright 2008-2011, Igor Tkach.
-      Last updated on Apr 11, 2011.
+      Last updated on Apr 28, 2011.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
