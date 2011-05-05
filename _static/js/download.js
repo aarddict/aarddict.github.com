@@ -39,7 +39,7 @@ var aarddict = {
 		if (this.isWindows()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_setup.exe')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.3-1_setup.exe')
 			.attr('title',
 			      'Aard Dictionary for Windows');
 		    return true;
@@ -47,7 +47,7 @@ var aarddict = {
 		if (this.isMacOSXIntel()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_macosx-intel.zip')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.3-1_macosx-intel.zip')
 			.attr('title',
 			      'Aard Dictionary for Mac OS X (Intel)');
 		    return true;
@@ -55,7 +55,7 @@ var aarddict = {
 		if (this.isLinux() && this.isUbuntu()) {
 		    a
 			.attr('href',
-			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.2-1_all.deb')
+			      'http://github.com/downloads/aarddict/desktop/aarddict_0.9.3-1_all.deb')
 			.attr('title',
 			      'Aard Dictionary for Ubuntu Linux');
 		    return true;
