@@ -66,6 +66,7 @@
 	  <col width="74px"/>
 	  <col width="*"/>
           <col width="*"/>
+          <col width="*"/>
 	  <col width="74px"/>
 	  <tr>
 	    <td style="vertical-align: middle; padding-right: 10px;">
@@ -73,13 +74,23 @@
 		<img style="vertical-align: middle;" src="../../_static/aarddict_big.png"/>
 	      </a>
 	    </td>
-	    <td>
+	    <td style="min-width: 230px">
               <h1 class="heading"><a href="../../index.html">
-		  <span>Aard Dictionary</span></a></h1>
+		  <span id="siteName">Aard Dictionary</span></a></h1>
               <h2 class="heading" style="margin-bottom: 0px; display: inline;"><span>Aard Tools</span></h2>
 	      
 	      
 	    </td>
+            <td style="text-align: right; vertical-align: middle;
+              min-width: 234px;">
+
+<!-- <iframe  width="234" height="60" scrolling="no" border="0" -->
+<!--          marginwidth="0" style="border:thin black solid;" -->
+<!--          frameborder="0"></iframe> -->
+
+              <iframe src="http://rcm.amazon.com/e/cm?t=aarddicti-20&o=1&p=42&l=ur1&category=kindle&banner=1WZT8SBSTKQCBZE3V182&f=ifr" width="234" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+            </td>
             <td style="text-align: right; vertical-align: middle;
               font-size: x-small;">
               <a href="http://quadz.8x.to">Quadz!</a><br/>
@@ -127,24 +138,32 @@
 <a class="reference internal" href="aardformat.html"><em>binary format</em></a> designed for fast word lookups and high
 compression. <cite>Aard Tools</cite> is a collection of tools to produce
 <a class="reference internal" href="aardformat.html"><em>Aard files</em></a> (<tt class="docutils literal"><span class="pre">.aar</span></tt>).</p>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python 2.7</li>
+<li>UNIX-like OS.</li>
+<li>Compiling large Mediawiki dumps such as English or German Wikipedia
+requires <strong>64-bit</strong> multicore machine.</li>
+</ul>
+</div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Examples below use <tt class="docutils literal"><span class="pre">apt-get</span></tt> on Ubuntu Linux. Consult your
+<p class="last">Instructions below are for Ubuntu Linux 12.10. Consult your
 distibution&#8217;s packaging system to find corresponding package names
 and commands to install them.</p>
 </div>
-<div class="section" id="prerequisits">
-<h3>Prerequisits<a class="headerlink" href="#prerequisits" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
 <p>Your system must be able to compile C and C++ programs:</p>
 <div class="highlight-python"><pre>sudo apt-get install build-essential</pre>
 </div>
-<p>You will also need to have Python headers:</p>
+<p>Your system must be able to compiled Python C extensions:</p>
 <div class="highlight-python"><pre>sudo apt-get install python-dev</pre>
 </div>
-<p>It is highly recommended to install and run <cite>Aard Tools</cite> inside
-<a class="reference external" href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>:</p>
+<p><cite>Aard Tools</cite> will be installed in a  <a class="reference external" href="http://pypi.python.org/pypi/virtualenv">virtualenv</a>:</p>
 <div class="highlight-python"><pre>sudo apt-get install python-virtualenv</pre>
 </div>
 <p><cite>Aard Tools</cite> rely on Python interfaces to
@@ -153,20 +172,19 @@ beforehand:</p>
 <div class="highlight-python"><pre>sudo apt-get install libicu-dev</pre>
 </div>
 <p>Install other non-Python dependencies:</p>
-<div class="highlight-python"><pre>sudo apt-get install libevent-dev</pre>
+<div class="highlight-python"><pre>sudo apt-get install libevent-dev libxml2-dev libxslt1-dev</pre>
 </div>
-<p>If you would like to get source code repository you will need
-<a class="reference external" href="http://git-scm.com/">Git</a>:</p>
+<p>Install <a class="reference external" href="http://git-scm.com/">Git</a>:</p>
 <div class="highlight-python"><pre>sudo apt-get install git</pre>
 </div>
-<p>When compiling Wikipedia into dictionary with HTML articles <cite>Aard
-Tools</cite> renders mathematical formulas using several tools: <strong class="command">latex</strong>,
+<p><cite>Aard Tools</cite> renders mathematical formulas using several tools: <strong class="command">latex</strong>,
 <strong class="command">blahtexml</strong>, <strong class="command">texvc</strong> and <strong class="command">dvipng</strong>.</p>
 <p>Install <strong class="command">latex</strong>:</p>
 <div class="highlight-python"><pre>sudo apt-get install texlive-latex-base</pre>
 </div>
-<p>Install <strong class="command">blahtexml</strong> following instructions at
-<a class="reference external" href="http://gva.noekeon.org/blahtexml/">http://gva.noekeon.org/blahtexml/</a></p>
+<p>Install <a class="reference external" href="http://gva.noekeon.org/blahtexml/">blahtex</a>:</p>
+<div class="highlight-python"><pre>sudo apt-get install blahtex</pre>
+</div>
 <p>Install <strong class="command">texvc</strong> (it is part of MediaWiki distribution):</p>
 <div class="highlight-python"><pre>sudo apt-get install mediawiki-math</pre>
 </div>
@@ -185,16 +203,6 @@ definitions for <strong class="command">texvc</strong> compatibility (borrowed f
 equations, but not all of them. When it fails, it falls back to
 <strong class="command">blahtexml</strong>, and then finally <strong class="command">texvc</strong>. If all fails (for example
 neither tools is installed) article ends up with raw math markup.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This applies to HTML article format (<a class="reference internal" href="aardformat.html#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>), which is what aardtools 0.8.0
-uses for Wikipedia by default. Articles in older JSON format (<a class="reference internal" href="aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a>) do not
-support math rendering.</p>
-</div>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">aarddict 0.7.x can&#8217;t render <a class="reference internal" href="aardformat.html#term-aar-html"><em class="xref std std-term">aar-HTML</em></a> articles, will show raw HTML.</p>
-</div>
 </div>
 <div class="section" id="id1">
 <h3>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
@@ -202,24 +210,9 @@ support math rendering.</p>
 <div class="highlight-python"><pre>virtualenv env-aard</pre>
 </div>
 <p>Activate it:</p>
-<div class="highlight-python"><pre>env-aard/bin/activate
-source env-aard/bin/activate</pre>
-</div>
-<p>and install <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>:</p>
-<div class="highlight-python"><pre>easy_install pip</pre>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>Recent versions of virtualenv already come with <a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a>
-installed. Make sure it&#8217;s up to date:</p>
-<div class="last highlight-python"><pre>pip install --upgrade pip</pre>
-</div>
+<div class="highlight-python"><pre>source env-aard/bin/activate</pre>
 </div>
 <p>Install <cite>Aard Tools</cite>:</p>
-<div class="highlight-python"><pre>pip install aardtools</pre>
-</div>
-<p>or, if you would like to install from the source code repository at
-GitHub:</p>
 <div class="highlight-python"><pre>pip install -e git+git://github.com/aarddict/tools.git#egg=aardtools</pre>
 </div>
 </div>
@@ -241,9 +234,11 @@ built with <strong class="command">mw-buildcdb</strong> from Wikipedia XML dump.
 <dd>Dictionaries in aar format. This is useful for updating dictionary metadata
 and changing the way it is split into volumes. Multiple input files can
 be combined into one single or multi volume dictionary.</dd>
+<dt>wordnet</dt>
+<dd><a class="reference external" href="http://wordnet.princeton.edu/">WordNet</a></dd>
 </dl>
 <p>Synopsis:</p>
-<div class="highlight-python"><pre>aardc (wiki|xdxf|aard) FILE [FILE2 [FILE3 ...]] [options]</pre>
+<div class="highlight-python"><pre>aardc [compiler options] (wiki|xdxf|aard) FILE [FILE2 [FILE3 ...]] [converter options]</pre>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -258,14 +253,35 @@ be combined into one single or multi volume dictionary.</dd>
 <div class="highlight-python"><pre>aard-siteinfo simple.wikipedia.org &gt; simple.json</pre>
 </div>
 <p>Build mwlib article database:</p>
-<div class="highlight-python"><pre>mw-buildcdb --input simplewiki-20101026-pages-articles.xml.bz2 --output simplewiki-20101026-pages-articles.cdb</pre>
+<div class="highlight-python"><pre>mw-buildcdb --input simplewiki-20130203-pages-articles.xml.bz2 --output simplewiki-20130203.cdb</pre>
 </div>
 <p>Original dump is not needed after this, it may be deleted or moved to
-free up disk space. Compile aar dictionary from the article database:</p>
-<div class="highlight-python"><pre>aardc wiki simplewiki-20101026-pages-articles.cdb --siteinfo simple.json</pre>
+free up disk space.</p>
+<p>Parsing certain content elements is locale specific. Make sure your
+system has approparite locale available. For example, if compiling
+Polish Wikipedia:</p>
+<div class="highlight-python"><pre>sudo locale-gen pl</pre>
+</div>
+<p>Compile small sample dictionary from the article database:</p>
+<div class="highlight-python"><pre>aardc wiki simplewiki-20130203.cdb simplewiki.json --article-count 1000 --filter enwiki</pre>
+</div>
+<p>Verify that resulting dictionary has good metadata (description,
+license, source url), that &#8220;View Online&#8221; action works and article
+formatting is formatting. Content filters may need to be created or
+modified to clean up resulting articles of unwanted navigational
+links, article messages, empty sections etc. In the example above we
+indicate that we would like to use built-in filter set for English
+Wikipedia.</p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#content-filters">Content Filters</a></p>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#language-links">Language Links</a></p>
 </div>
 <p>Compiler infers from the input file name that Wikipedia language
-is &#8220;simple&#8221; and that version is 20101026. These need to be specified
+is &#8220;simple&#8221; and that version is 20130203. These need to be specified
 explicitely through command line options if cdb directory name doesn&#8217;t
 follow the pattern of the xml dump file names.</p>
 <p>If siteinfo&#8217;s general section specifies one of the two licences used
@@ -276,6 +292,98 @@ metadata. You can also specify explicitly files containing license
 text and copyright notice with <tt class="docutils literal"><span class="pre">--license</span></tt> and <tt class="docutils literal"><span class="pre">--copyright</span></tt>
 options. Use <tt class="docutils literal"><span class="pre">--metadata</span></tt> option to specify file containing
 additional dictionary meta data, such as description.</p>
+<div class="section" id="content-filters">
+<h4>Content Filters<a class="headerlink" href="#content-filters" title="Permalink to this headline">¶</a></h4>
+<p>Content filters are defined in <a class="reference external" href="http://www.yaml.org/">YAML</a>, as a dictionary with the
+following keys:</p>
+<dl class="docutils">
+<dt>EXCLUDE_PAGES</dt>
+<dd><p class="first">List of regular expressions matching Mediawiki template
+names. Excluding templates improves compilation performance since
+their content is completely excluded from processing.</p>
+<div class="last admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Entries containing <tt class="docutils literal"><span class="pre">:</span></tt> character must be quoted</p>
+</div>
+</dd>
+<dt>EXCLUDE_CLASSES</dt>
+<dd>List of HTML class names to be excluded. Article HTML elements having one of
+these classes will be excluded from final output.</dd>
+<dt>EXCLUDE_IDS</dt>
+<dd>List of HTML element ids to excluded. Article HTML elements having one of
+these ids will be excluded from final output.</dd>
+<dt>TEXT_REPLACE</dt>
+<dd>List of dictionaries with <cite>re</cite> and <cite>sub</cite> keys defining text
+substitutions. Text substitutions are performed on the resulting
+article HTML text.
+Matching expressions will be replaced with optional substition text
+If no substition text is provided, matching patterns will be removed</dd>
+</dl>
+<p>Here&#8217;s an example of content filter file:</p>
+<div class="highlight-yaml"><div class="highlight"><pre><span class="l-Scalar-Plain">EXCLUDE_PAGES</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Only</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">print&quot;</span>
+  <span class="c1"># Don&#39;t process navigation boxes</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Navbar&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Navbox&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Navboxes&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Side</span><span class="nv"> </span><span class="s">box&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Sidebar</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">collapsible</span><span class="nv"> </span><span class="s">lists&quot;</span>
+  <span class="c1"># No need for audio</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Audio&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Spoken</span><span class="nv"> </span><span class="s">Wikipedia&quot;</span>
+  <span class="c1"># Bulky and unnecessary tables</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Latin</span><span class="nv"> </span><span class="s">alphabet</span><span class="nv"> </span><span class="s">navbox&quot;</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;Template:Greek</span><span class="nv"> </span><span class="s">Alphabet&quot;</span>
+  <span class="c1"># Exclude any stub templates, match case-insensitive</span>
+  <span class="p-Indicator">-</span> <span class="s">&quot;(?i).*-stub&quot;</span>
+
+<span class="l-Scalar-Plain">EXCLUDE_CLASSES</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">collapsible</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">maptable</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">printonly</span>
+
+<span class="l-Scalar-Plain">EXCLUDE_IDS</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">interProject</span>
+
+<span class="l-Scalar-Plain">TEXT_REPLACE</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">re</span>  <span class="p-Indicator">:</span> <span class="s">&quot;&amp;lt;(\\w+)</span><span class="nv"> </span><span class="s">(class=[^&gt;]*?)&amp;gt;&quot;</span>
+    <span class="l-Scalar-Plain">sub</span> <span class="p-Indicator">:</span> <span class="s">&quot;&lt;\\1</span><span class="nv"> </span><span class="s">\\2&gt;&quot;</span>
+
+  <span class="c1"># Remove empty sections</span>
+  <span class="c1"># Used in articles like encyclopaedia</span>
+  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">re</span>  <span class="p-Indicator">:</span> <span class="s">&quot;&lt;div&gt;&lt;h.&gt;[\\w\\s]*&lt;/h.&gt;(&lt;p&gt;\\s*&lt;/p&gt;)*&lt;/div&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Excluding content by template name is the most effective approach,
+however sometimes it is more convenient and concise to exclude content
+by HTML class or id. Text replacement is useful for things like fixing
+broken output of some templates and getting rid of empty sections. Run
+with <tt class="docutils literal"><span class="pre">--debug</span></tt> to have converted article html logged - text
+replacement regular expressions should be tested against it.</p>
+<p>Content filters are specified with <tt class="docutils literal"><span class="pre">--filters</span></tt> command line
+option, as a path to the filters file, or a name of one of filter
+files bundled with aardtools. For example, filters defined for English
+Wikipedia also work well for Simple English Wikipedia, so to compile
+simplewiki we can run</p>
+<div class="highlight-python"><pre>aardc wiki simplewiki-20130203.cdb simplewiki.json --filter enwiki</pre>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference external" href="http://docs.python.org/2/library/re.html">Documentation</a> for the <tt class="xref py py-mod docutils literal"><span class="pre">re</span></tt> module</p>
+</div>
+</div>
+<div class="section" id="language-links">
+<h4>Language Links<a class="headerlink" href="#language-links" title="Permalink to this headline">¶</a></h4>
+<p>Many Wikipedia articles include language links - links to the
+same article in a different language. Optionally, article titles in
+other languages can be added to lookup index. This is specified with
+<tt class="docutils literal"><span class="pre">--lang-links</span></tt> command line option. For example:</p>
+<div class="highlight-python"><pre>aardc wiki enwiki-20130128.cdb enwiki.json --lang-links de fr</pre>
+</div>
+<p>In resulting dictionary articles can be found by their German and
+French title, in addition to English. Note that adding language links
+slightly increases resulting dictionary size.</p>
+</div>
 </div>
 <div class="section" id="compiling-xdxf-dictionaries">
 <h3>Compiling XDXF Dictionaries<a class="headerlink" href="#compiling-xdxf-dictionaries" title="Permalink to this headline">¶</a></h3>
@@ -343,7 +451,7 @@ not counting redirects</li>
 <li>Change article format for xdxf from json to html</li>
 <li>Add option <tt class="docutils literal"><span class="pre">--skip-article-title</span></tt> for xdxf to not add article title
 at the beginning of article (some dicitonaries already have it)</li>
-<li>Remove support for article <a class="reference internal" href="aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> article format</li>
+<li>Remove support for JSON article format</li>
 <li>Add command to fetch siteinfo, require that siteinfo file is
 explicitely specified with <tt class="docutils literal"><span class="pre">--siteinfo</span></tt> option</li>
 <li>Don&#8217;t load default license, copyright and metadata files, don&#8217;t
@@ -449,7 +557,7 @@ dictionary metadata by default</li>
 
     <div class="footer">
         &copy; Copyright 2008-2013, Igor Tkach.
-      Last updated on Feb 10, 2013.
+      Last updated on Feb 25, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

@@ -15,9 +15,7 @@ First open some dictionaries, either by selecting
 that Aard Dictionary will scan that directory (without subdirectories)
 and open any dictionaries it finds every time it is started.
 
-Dictionaries have `.aar` extension. Dictionaries in newer :term:`aar-HTML`
-format have double extension `.html.aar`, while dictionaries in older
-:term:`aar-JSON` format have single `.aar` extension.
+Dictionaries have `.aar` extension.
 
 Start typing a word to look up in `Lookup Box`. List of matching words
 appears below `Lookup Box` and is updated when typing is paused, best
@@ -365,7 +363,7 @@ Limitations
 ===========
 
 - Wikipedia for Aard Dictionary doesn't include any audio, video and
-  images except for images rendering math (:term:`aar-HTML`).
+  images except for images rendering math.
 
 - Wikipedia for Aard Dictionary does not include Wikipedia
   navigational features like categories, portals and navigation boxes.
@@ -387,22 +385,11 @@ Limitations
   tool which hasn't been written yet.
 
 
-Dictionaries with articles in older :term:`aar-JSON` format have
-additional limitations (limited table support, math is not rendered)
-and is deprecated. Support for :term:`aar-JSON` has been removed
-from Aard Dictionary in version 0.9.0. Aard Dictionary for Android
-also doesn't support it.
-
-
 Installation Notes
 ==================
 
 Windows
 -------
-.. warning::
-   Users are strongly advised to uninstall Aard Dictionary 0.7.x by
-   running Aard Dictionary uninstaller before upgrading to 0.8.0
-
 If starting the application results in error message like this::
 
   This application has failed to start because the application
@@ -432,7 +419,7 @@ Maemo
 -----
 Aard Dictionary starting with 0.8.0 depends on PyQt4 libraries which
 have not been officially released for Maemo 4 (N800 and N810) and are
-only available in development repository. 
+only available in development repository.
 Maemo 4 users can use `single click install for Maemo 5`_, but must enable
 `Diablo Extras-devel repository`_ first. Be advised that `extras-devel`
 contains potentially unstable software that is primarily intended for
@@ -709,7 +696,7 @@ Changes
 
 - Rearrange menus, add new shortcuts.
 
-- Remove support for :term:`aar-JSON`.
+- Remove support for JSON article format.
 
 
 0.8.0

@@ -65,6 +65,7 @@
 	  <col width="74px"/>
 	  <col width="*"/>
           <col width="*"/>
+          <col width="*"/>
 	  <col width="74px"/>
 	  <tr>
 	    <td style="vertical-align: middle; padding-right: 10px;">
@@ -72,13 +73,23 @@
 		<img style="vertical-align: middle;" src="../../_static/aarddict_big.png"/>
 	      </a>
 	    </td>
-	    <td>
+	    <td style="min-width: 230px">
               <h1 class="heading"><a href="../../index.html">
-		  <span>Aard Dictionary</span></a></h1>
+		  <span id="siteName">Aard Dictionary</span></a></h1>
               <h2 class="heading" style="margin-bottom: 0px; display: inline;"><span>Aard Format</span></h2>
 	      
 	      
 	    </td>
+            <td style="text-align: right; vertical-align: middle;
+              min-width: 234px;">
+
+<!-- <iframe  width="234" height="60" scrolling="no" border="0" -->
+<!--          marginwidth="0" style="border:thin black solid;" -->
+<!--          frameborder="0"></iframe> -->
+
+              <iframe src="http://rcm.amazon.com/e/cm?t=aarddicti-20&o=1&p=42&l=ur1&category=kindle&banner=1WZT8SBSTKQCBZE3V182&f=ifr" width="234" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+            </td>
             <td style="text-align: right; vertical-align: middle;
               font-size: x-small;">
               <a href="http://quadz.8x.to">Quadz!</a><br/>
@@ -222,29 +233,14 @@ of article text and article text itself.</p>
 </div>
 </div>
 </div>
-<div class="section" id="article-formats">
-<h2>Article Formats<a class="headerlink" href="#article-formats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="article-format">
+<h2>Article Format<a class="headerlink" href="#article-format" title="Permalink to this headline">¶</a></h2>
 <p>From container format perspective article is just a string that is stored
 either as is or compressed with gzip or bz2 whichever takes less space. Thus
 articles in Aard files may be in any format that can be represented as
-string, for example plain text or HTML.</p>
-<p>Aard Dictionary 0.7.x can only display JSON-encoded articles
-(<a class="reference internal" href="#term-aar-json"><em class="xref std std-term">aar-JSON</em></a>). Aard Dictionary 0.8.0 supports both
-<a class="reference internal" href="#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> and <a class="reference internal" href="#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>. Aard Dictionary 0.9.0 and Aard
-Dictionary for Android support only <a class="reference internal" href="#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>.</p>
-<dl class="glossary docutils">
-<dt id="term-aar-json">aar-JSON</dt>
-<dd>Article is represented by a tuple consisting of article <tt class="docutils literal"><span class="pre">text</span></tt>, <tt class="docutils literal"><span class="pre">tags</span></tt> and
-optional attributes dictionary (so article tuple length may be either 2 or 3).
-<tt class="docutils literal"><span class="pre">text</span></tt> is UTF8 encoded string. <tt class="docutils literal"><span class="pre">tags</span></tt> is a sequence of tag tuples. Each tag
-tuple is a tuple of values for tag name, start position, end position and
-optional attribute dictionary (so each tag tuple has length of either 3 or
-4). This data structure is converted to string via JSON
-serialization.</dd>
-<dt id="term-aar-html">aar-HTML</dt>
-<dd>Article is represented as HTML 4 or XHTML 1.0 formatted text without
-enclosing <tt class="docutils literal"><span class="pre">html</span></tt> and <tt class="docutils literal"><span class="pre">body</span></tt> tags.</dd>
-</dl>
+string, for example plain text or HTML. Current Aard Dictionary
+implementation expects HTML 4 or XHTML 1.0 formatted text without
+enclosing <tt class="docutils literal"><span class="pre">html</span></tt> and <tt class="docutils literal"><span class="pre">body</span></tt> tags.</p>
 </div>
 </div>
 
@@ -264,7 +260,7 @@ enclosing <tt class="docutils literal"><span class="pre">html</span></tt> and <t
 
     <div class="footer">
         &copy; Copyright 2008-2013, Igor Tkach.
-      Last updated on Feb 10, 2013.
+      Last updated on Feb 25, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

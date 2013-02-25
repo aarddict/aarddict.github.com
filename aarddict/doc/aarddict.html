@@ -66,6 +66,7 @@
 	  <col width="74px"/>
 	  <col width="*"/>
           <col width="*"/>
+          <col width="*"/>
 	  <col width="74px"/>
 	  <tr>
 	    <td style="vertical-align: middle; padding-right: 10px;">
@@ -73,13 +74,23 @@
 		<img style="vertical-align: middle;" src="../../_static/aarddict_big.png"/>
 	      </a>
 	    </td>
-	    <td>
+	    <td style="min-width: 230px">
               <h1 class="heading"><a href="../../index.html">
-		  <span>Aard Dictionary</span></a></h1>
+		  <span id="siteName">Aard Dictionary</span></a></h1>
               <h2 class="heading" style="margin-bottom: 0px; display: inline;"><span>Aard Dictionary</span></h2>
 	      
 	      
 	    </td>
+            <td style="text-align: right; vertical-align: middle;
+              min-width: 234px;">
+
+<!-- <iframe  width="234" height="60" scrolling="no" border="0" -->
+<!--          marginwidth="0" style="border:thin black solid;" -->
+<!--          frameborder="0"></iframe> -->
+
+              <iframe src="http://rcm.amazon.com/e/cm?t=aarddicti-20&o=1&p=42&l=ur1&category=kindle&banner=1WZT8SBSTKQCBZE3V182&f=ifr" width="234" height="60" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+
+            </td>
             <td style="text-align: right; vertical-align: middle;
               font-size: x-small;">
               <a href="http://quadz.8x.to">Quadz!</a><br/>
@@ -131,9 +142,7 @@
 <em class="menuselection">Dictionary ‣ Add Directory</em>. Adding a directory means
 that Aard Dictionary will scan that directory (without subdirectories)
 and open any dictionaries it finds every time it is started.</p>
-<p>Dictionaries have <cite>.aar</cite> extension. Dictionaries in newer <a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>
-format have double extension <cite>.html.aar</cite>, while dictionaries in older
-<a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> format have single <cite>.aar</cite> extension.</p>
+<p>Dictionaries have <cite>.aar</cite> extension.</p>
 <p>Start typing a word to look up in <cite>Lookup Box</cite>. List of matching words
 appears below <cite>Lookup Box</cite> and is updated when typing is paused, best
 matches displayed first (at the top of the list) and first match
@@ -525,7 +534,7 @@ with Maemo Application Manager.</p>
 <h2>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Wikipedia for Aard Dictionary doesn&#8217;t include any audio, video and
-images except for images rendering math (<a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-html"><em class="xref std std-term">aar-HTML</em></a>).</li>
+images except for images rendering math.</li>
 <li>Wikipedia for Aard Dictionary does not include Wikipedia
 navigational features like categories, portals and navigation boxes.</li>
 <li>Only some wikipedia inter-project links work. Links that start with
@@ -543,21 +552,11 @@ text markup or formatting conventions that can be converted to
 proper XDXF and aard markup, but this requires a custom conversion
 tool which hasn&#8217;t been written yet.</li>
 </ul>
-<p>Dictionaries with articles in older <a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> format have
-additional limitations (limited table support, math is not rendered)
-and is deprecated. Support for <a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a> has been removed
-from Aard Dictionary in version 0.9.0. Aard Dictionary for Android
-also doesn&#8217;t support it.</p>
 </div>
 <div class="section" id="installation-notes">
 <h2>Installation Notes<a class="headerlink" href="#installation-notes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
-<p class="last">Users are strongly advised to uninstall Aard Dictionary 0.7.x by
-running Aard Dictionary uninstaller before upgrading to 0.8.0</p>
-</div>
 <p>If starting the application results in error message like this:</p>
 <div class="highlight-python"><pre>This application has failed to start because the application
 configuration is incorrect. Reinstalling the application may fix this
@@ -801,7 +800,7 @@ button, make it look better.</li>
 better support new features (improved history, customizable article
 font). State saved by 0.8.0 is ignored.</li>
 <li>Rearrange menus, add new shortcuts.</li>
-<li>Remove support for <a class="reference internal" href="../../aardtools/doc/aardformat.html#term-aar-json"><em class="xref std std-term">aar-JSON</em></a>.</li>
+<li>Remove support for JSON article format.</li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -966,7 +965,7 @@ article</li>
 
     <div class="footer">
         &copy; Copyright 2008-2013, Igor Tkach.
-      Last updated on Feb 14, 2013.
+      Last updated on Feb 25, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

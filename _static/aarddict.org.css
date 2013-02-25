@@ -107,3 +107,7 @@ a.altversionlink {
    margin-top: -3px;
    margin-bottom: 0px;
 }
+
+#siteName {
+   text-shadow: 1px 1px 2px gray;
+}
