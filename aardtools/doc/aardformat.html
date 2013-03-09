@@ -169,7 +169,21 @@ pointer.</dd>
 viewer uses the following metadata keys:</p>
 <dl class="docutils">
 <dt>article_count</dt>
-<dd>number of unique articles in the dictionary (in all volumes combined)</dd>
+<dd><p class="first">number of unique articles in the volume</p>
+<p class="last versionchanged">
+<span class="versionmodified">Changed in version 0.9.0: </span>In previous versions this property meant total number of
+articles in the whole dictionary. Readers should examine
+<cite>article_count_is_volume_total</cite> metadata property to determine
+whether this value refers to number of articles in volume or in
+dictionary.</p>
+</dd>
+<dt>article_count_is_volume_total</dt>
+<dd><p class="first versionadded">
+<span class="versionmodified">New in version 0.9.0.</span></p>
+<p class="last"><tt class="docutils literal"><span class="pre">true</span></tt> if <cite>article_count</cite> property means total number of articles in
+the volume. Since aardtools 0.9.0 compiler always sets this property
+to <tt class="docutils literal"><span class="pre">true</span></tt>.</p>
+</dd>
 <dt>index_language</dt>
 <dd>dictionary&#8217;s &#8220;from&#8221; language (two or thre letter ISO code)</dd>
 <dt>article_language</dt>
@@ -239,7 +253,7 @@ enclosing <tt class="docutils literal"><span class="pre">html</span></tt> and <t
 
     <div class="footer">
         &copy; Copyright 2008-2013, Igor Tkach.
-      Last updated on Mar 08, 2013.
+      Last updated on Mar 09, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
