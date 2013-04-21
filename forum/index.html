@@ -3,6 +3,9 @@
 <html>
 <head>
 <title>Forum &mdash; Aard Dictionary</title>
+<style>
+   html, body { height: 100%; padding: 0px; margin: 0px; }
+</style>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -15,8 +18,9 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
+
 </head>
-<BODY>
+<body>
 
 <iframe id="forum_embed"
  src="javascript:void(0)"
@@ -29,9 +33,9 @@
 <script type="text/javascript">
  document.getElementById("forum_embed").src =
   "https://groups.google.com/forum/embed/?place=forum/aarddict" +
-  "&showsearch=true&showpopout=true";
+  "&hideforumtitle=true&showsearch=true&showpopout=true&parenturl=" +
+  encodeURIComponent(window.location.href);
 </script>
 
-
-</BODY>
-</HTML>
+</body>
+</html>
