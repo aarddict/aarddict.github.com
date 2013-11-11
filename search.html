@@ -20,7 +20,7 @@
         VERSION:     '0.9.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  false
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
@@ -49,54 +49,35 @@
 <link rel="stylesheet" type="text/css"
       href="_static/aarddict.org.css" />
 <link rel="stylesheet" media="screen" type="text/css"
-      href="_static/zoomimage/css/zoomimage.css" />
+      href="_static/css/font-awesome.css" />
 
 
   </head>
   <body>
-      <div class="header"><table style="width: 100%; height: 85px;" cellpadding="0" cellspacing="0">
-	  <col width="74px"/>
-	  <col width="*"/>
-          <col width="*"/>
-          <col width="*"/>
-	  <!-- <col width="74px"/> -->
-	  <tr>
-	    <td style="vertical-align: middle; padding-right: 10px;">
-	      <a href="index.html">
-		<img style="vertical-align: middle;" src="_static/aarddict_big.png"/>
-	      </a>
-	    </td>
-	    <td style="min-width: 220px; line-height: 1.1;">
-              <h1 class="heading" style="padding-top: 10px;"><a href="index.html">
-		  <span id="siteName">Aard Dictionary</span></a></h1>
-              <h2 class="heading" style="margin-bottom: 0px; display: inline;"><span>Search</span></h2>
-	      
-	      
-              <br/>
-              <a href="http://flattr.com/thing/80944/Aard-Dictionary" target="_blank">
-                <img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
+      <div class="header"><div align="center">
+          <table>
+            <tr>
+              <td>
+	        <a href="index.html">
+		  <img style="vertical-align: middle;" src="_static/aarddict_big.png"/>
+	        </a>
+              </td>
+              <td>
+                <h1 class="heading" style="padding-top: 0px; padding-left: 10px;"><a href="index.html">
+	            <span id="siteName">Aard Dictionary</span></a></h1>
+                <div align="center" style="margin-top: -5px;">
+                  <a class="uplink icon-link"
+                     href="http://github.com/aarddict"><i class="fa fa-github"></i></a>
+                  <a class="uplink icon-link"
+                     href="http://www.twitter.com/aarddict"><i class="fa fa-twitter"></i></a>
+                  <a class="uplink icon-link" href="/forum"><i class="fa fa-comments"></i></a>
+                  <a class="uplink icon-link" href="docs/index.html"><i class="fa fa-question-circle"></i></a>
+                </div>
 
-	    </td>
-            <td style="text-align: right; vertical-align: middle;
-              min-width: 468px;">
-              <a href="http://quadz.8x.to"><img src="_static/quadz_banner_1.png"/></a>
-            </td>
-            <td style="text-align: left; vertical-align: middle;
-              font-size: x-small; padding-left: 5px;">
-
-              <a href="https://copy.com?r=6thmsH"
-                 title="Help us get more space for dictionary hosting - join Copy via our link (you get extra free space too)">Copy!</a><br/>
-
-              <a href="http://db.tt/Uv6k8bI"
-                 title="Help us get more space for dictionary hosting - join Dropbox via our link (you get extra free space too)">Dropbox!</a><br/>
-              <a href="http://www.wuala.com/referral/CPNKGH6HMHHF5M3366B6"
-                 title="Help us get more space for dictionary hosting - join Wuala via our link (you get extra free space too)">Wuala!</a>
-            </td>
-	    <!-- <td style="vertical-align: middle; font-size: small; -->
-	    <!--            text-align: center;"> -->
-	    <!-- </td> -->
-	  </tr>
-	</table>
+              </td>
+            </tr>
+          </table>
+          </div>
       </div>
       <div class="topnav">
 
@@ -147,24 +128,18 @@
 	
       </div>
 
-<script type="text/javascript">
-    window._idl = {};
-    _idl.variant = "modal";
-    (function() {
-        var idl = document.createElement('script');
-        idl.type = 'text/javascript';
-        idl.async = true;
-        idl.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'members.internetdefenseleague.org/include/?url=' + (_idl.url || '') + '&campaign=' + (_idl.campaign || '') + '&variant=' + (_idl.variant || 'banner');
-        document.getElementsByTagName('body')[0].appendChild(idl);
-    })();
-</script>
 
 
 
     <div class="footer">
         &copy; Copyright 2008-2013, Igor Tkach.
-      Last updated on Sep 22, 2013.
+      Last updated on Nov 10, 2013.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
+    <div class="footer">
+      <a href="http://fontawesome.io">Font Awesome</a> by Dave Gandy
+    </div>
+
+
   </body>
 </html>
